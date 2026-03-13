@@ -152,25 +152,53 @@ const Admin = () => {
     return null;
   }
 
+  const handleMenuSelect = (id: string) => {
+    setActiveSection(id);
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <div className="min-h-screen flex">
-      {/* Sidebar */}
-      <aside className="w-64 glass-card-strong rounded-none border-r border-white/10 p-4 hidden lg:block">
-        <div className="flex items-center gap-3 mb-8 px-2">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <Shield className="w-5 h-5 text-white" />
+    <div className="min-h-screen flex relative">
+      {/* Mobile Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Sidebar - desktop always visible, mobile as drawer */}
+      <aside
+        className={`
+          fixed inset-y-0 left-0 z-50 w-64 glass-card-strong rounded-none border-r border-white/10 p-4
+          transform transition-transform duration-300 ease-in-out
+          lg:relative lg:translate-x-0
+          ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
+        `}
+      >
+        <div className="flex items-center justify-between mb-8 px-2">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <Shield className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h1 className="font-bold text-white">Admin Panel</h1>
+              <p className="text-xs text-white/50">XpenseFlow</p>
+            </div>
           </div>
-          <div>
-            <h1 className="font-bold text-white">Admin Panel</h1>
-            <p className="text-xs text-white/50">XpenseFlow</p>
-          </div>
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="lg:hidden p-1 rounded-lg hover:bg-white/10 text-white/60"
+          >
+            <X className="w-5 h-5" />
+          </button>
         </div>
 
         <nav className="space-y-1">
           {menuItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => setActiveSection(item.id)}
+              onClick={() => handleMenuSelect(item.id)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all ${
                 activeSection === item.id
                   ? "bg-primary/20 text-primary"
