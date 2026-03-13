@@ -41,6 +41,7 @@ import FinancialDashboard from "@/components/admin/FinancialDashboard";
 
 const Admin = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [rejectionReason, setRejectionReason] = useState("");
   const [rejectingId, setRejectingId] = useState<string | null>(null);
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
