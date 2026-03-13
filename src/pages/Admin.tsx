@@ -229,66 +229,7 @@ const Admin = () => {
         </header>
 
         {/* Dashboard View */}
-        {activeSection === "dashboard" && (
-          <>
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              {statCards.map((stat, index) => (
-                <div key={index} className="glass-card">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <p className="text-white/60 text-sm">{stat.label}</p>
-                      <p className="text-2xl font-bold text-white mt-1">{stat.value}</p>
-                      {stat.trend && (
-                        <span className="text-xs text-success mt-1 inline-block">{stat.trend}</span>
-                      )}
-                    </div>
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
-                      <stat.icon className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Quick Actions */}
-            <div className="glass-card">
-              <h2 className="text-lg font-semibold text-white mb-4">Ações Rápidas</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <button
-                  onClick={() => setActiveSection("users")}
-                  className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <Users className="w-5 h-5 text-primary" />
-                  </div>
-                  <span className="text-sm text-white">Usuários</span>
-                </button>
-                <button
-                  onClick={() => setActiveSection("expenses")}
-                  className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-warning/20 flex items-center justify-center">
-                    <FileText className="w-5 h-5 text-warning" />
-                  </div>
-                  <span className="text-sm text-white">Aprovações</span>
-                </button>
-                <button className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-success/20 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-success" />
-                  </div>
-                  <span className="text-sm text-white">Relatórios</span>
-                </button>
-                <button className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
-                    <Settings className="w-5 h-5 text-accent" />
-                  </div>
-                  <span className="text-sm text-white">Configurar</span>
-                </button>
-              </div>
-            </div>
-          </>
-        )}
+        {activeSection === "dashboard" && <FinancialDashboard />}
 
         {/* Users View */}
         {activeSection === "users" && (
