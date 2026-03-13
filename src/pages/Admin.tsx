@@ -226,7 +226,14 @@ const Admin = () => {
       <main className="flex-1 p-6 overflow-auto">
         {/* Header */}
         <header className="flex items-center justify-between mb-8">
-          <div>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden p-2 rounded-xl glass-card hover:bg-white/10 transition-colors"
+            >
+              <Menu className="w-5 h-5 text-white" />
+            </button>
+            <div>
             <h1 className="text-2xl font-bold text-white">
               {activeSection === "dashboard" && "Dashboard Administrativo"}
               {activeSection === "users" && "Gerenciar Usuários"}
