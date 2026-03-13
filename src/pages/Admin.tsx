@@ -22,7 +22,9 @@ import {
   FileUp,
   AlertTriangle,
   Eye,
-  AlertCircle
+  AlertCircle,
+  Menu,
+  X
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useAdminData } from "@/hooks/useAdminData";
