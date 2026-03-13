@@ -35,6 +35,7 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { UserHistoryModal } from "@/components/admin/UserHistoryModal";
 import { ReconciliationAlerts } from "@/components/admin/ReconciliationAlerts";
+import FinancialDashboard from "@/components/admin/FinancialDashboard";
 
 const Admin = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
