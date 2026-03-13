@@ -241,7 +241,7 @@ const Admin = () => {
               {activeSection === "statements" && "Faturas PDF"}
               {activeSection === "settings" && "Configurações"}
             </h1>
-            <p className="text-white/60">Bem-vindo, {profile?.full_name || "Administrador"}</p>
+            </div>
           </div>
           <div className="flex items-center gap-4">
             <div className="relative">
